@@ -175,11 +175,32 @@
   @keyframes seq{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 
   .cue{
-    position:absolute;bottom:24px;right:50%;transform:translateX(50%);
-    color:var(--gold-dim);font-size:1.4rem;
-    animation:cue 2.2s ease-in-out infinite;
+    position:absolute;bottom:26px;right:50%;transform:translateX(50%);
+    display:flex;flex-direction:column;align-items:center;gap:.15rem;
+    color:var(--gold);
+    text-decoration:none;
+    opacity:0;
+    animation:
+      cue-in 1.2s ease 3s forwards,
+      cue-float 2.4s ease-in-out 4.2s infinite;
   }
-  @keyframes cue{0%,100%{transform:translateX(50%) translateY(0);opacity:.45}50%{transform:translateX(50%) translateY(8px);opacity:1}}
+  @keyframes cue-in{from{opacity:0}to{opacity:1}}
+  .cue .cue-txt{
+    font-size:.95rem;color:var(--ivory-dim);
+    letter-spacing:.05em;white-space:nowrap;
+  }
+  .cue .chev{
+    width:14px;height:14px;
+    border-left:2px solid var(--gold);
+    border-bottom:2px solid var(--gold);
+    transform:rotate(-45deg);
+    filter:drop-shadow(0 0 6px rgba(232,201,121,.7));
+  }
+  .cue .chev + .chev{margin-top:-8px;opacity:.5}
+  @keyframes cue-float{
+    0%,100%{transform:translateX(50%) translateY(0)}
+    50%{transform:translateX(50%) translateY(9px)}
+  }
 
   /* ══════════ ٢ — الدعوة ══════════ */
   #invite p.invite-line{
@@ -464,7 +485,11 @@
   <div class="orn fade-seq" style="animation-delay:2.2s"><span class="st">✦</span></div>
   <div class="hero-date fade-seq" style="animation-delay:2.45s">٢٩ يوليو ٢٠٢٦</div>
   <div class="hero-day fade-seq" style="animation-delay:2.65s">مساء الأربعاء — الساعة ٨</div>
-  <div class="cue">﹀</div>
+  <a class="cue" href="#invite" aria-label="انزل لباقي الدعوة">
+    <span class="cue-txt">اسحبوا لتحت… الحكاية لسه بتبدأ</span>
+    <span class="chev"></span>
+    <span class="chev"></span>
+  </a>
 </section>
 
 <!-- ═══════ ٢ — الدعوة ═══════ -->
@@ -517,8 +542,7 @@
     <h2 class="gold">نجمين الليلة دي</h2>
     <div class="frame-arch">
       <div class="inner">
-        <!-- ✏️ حط صورة العروسين هنا: couple.jpg -->
-        <img src="couple.jpg" alt="حسام وندى"
+        <img src="hossam.jpeg" alt="حسام وندى"
              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="ph" style="display:none">
           <div class="ph-mono">ح<span class="hw">♥</span>ن</div>
