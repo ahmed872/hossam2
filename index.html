@@ -253,7 +253,56 @@
   }
   #fate p.fate-text .g{color:var(--gold)}
 
-  /* ══════════ ٥ — بطاقة الليلة ══════════ */
+  /* ══════════ ٥ — صورة العروسين ══════════ */
+  #portrait .frame-arch{
+    width:min(360px,82vw);
+    padding:12px;
+    border:1.5px solid rgba(232,201,121,.6);
+    border-radius:260px 260px 16px 16px;
+    background:linear-gradient(180deg, rgba(232,201,121,.07), transparent 55%);
+    box-shadow:0 0 55px rgba(232,201,121,.12), 0 26px 70px rgba(0,0,0,.5);
+    margin:2.2rem auto 0;
+    position:relative;
+  }
+  #portrait .frame-arch::before{
+    content:'✦';
+    position:absolute;top:-14px;right:50%;transform:translateX(50%);
+    color:var(--gold);font-size:1.15rem;
+    background:var(--night-2);padding:0 .5rem;
+    text-shadow:0 0 14px rgba(232,201,121,.9);
+  }
+  #portrait .frame-arch .inner{
+    border-radius:250px 250px 10px 10px;
+    overflow:hidden;
+    border:1px solid rgba(232,201,121,.35);
+    background:radial-gradient(circle at 50% 30%, var(--night-3), var(--night-2));
+  }
+  #portrait .frame-arch img{
+    display:block;width:100%;height:auto;
+    aspect-ratio:3/4;object-fit:cover;
+  }
+  /* بديل أنيق لحد ما الصورة تتحط */
+  #portrait .ph{
+    aspect-ratio:3/4;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:.6rem;
+  }
+  #portrait .ph .ph-mono{
+    font-family:var(--font-head);font-weight:700;
+    font-size:2.6rem;color:var(--gold);
+    text-shadow:0 0 26px rgba(232,201,121,.5);
+  }
+  #portrait .ph .ph-mono .hw{color:var(--moon);font-size:1.4rem;vertical-align:.35em;margin:0 .2em}
+  #portrait .ph .ph-note{color:var(--ivory-dim);font-size:.9rem;padding:0 1.5rem}
+  #portrait .caption{
+    max-width:480px;
+    margin-top:1.8rem;
+    font-size:clamp(1.05rem,3.8vw,1.25rem);
+    color:var(--ivory);
+  }
+  #portrait .caption .g{color:var(--gold)}
+
+  /* ══════════ ٦ — بطاقة الليلة ══════════ */
   #night-card .card{
     width:min(560px,94vw);
     padding:3.2rem 2rem;
@@ -293,6 +342,24 @@
     letter-spacing:.1em;
   }
   .row .sub{color:var(--ivory-dim);font-size:1rem}
+  .map-btn{
+    display:inline-flex;align-items:center;gap:.55rem;
+    margin-top:1.1rem;
+    padding:.6rem 1.7rem;
+    border:1px solid rgba(232,201,121,.65);
+    border-radius:50px;
+    color:var(--gold);
+    text-decoration:none;
+    font-size:1rem;
+    background:linear-gradient(180deg, rgba(232,201,121,.10), rgba(232,201,121,.03));
+    box-shadow:0 0 22px rgba(232,201,121,.12);
+    transition:box-shadow .3s ease, background .3s ease;
+  }
+  .map-btn:hover{
+    background:linear-gradient(180deg, rgba(232,201,121,.2), rgba(232,201,121,.07));
+    box-shadow:0 0 34px rgba(232,201,121,.3);
+  }
+  .map-btn .pin{font-size:.85rem;text-shadow:0 0 10px rgba(232,201,121,.9)}
 
   /* ══════════ ٦ — العد التنازلي ══════════ */
   #countdown .rings{
@@ -443,7 +510,27 @@
   </div>
 </section>
 
-<!-- ═══════ ٥ — بطاقة الليلة ═══════ -->
+<!-- ═══════ ٥ — صورة العروسين ═══════ -->
+<section id="portrait">
+  <div class="reveal">
+    <div class="eyebrow">Two stars, one sky</div>
+    <h2 class="gold">نجمين الليلة دي</h2>
+    <div class="frame-arch">
+      <div class="inner">
+        <!-- ✏️ حط صورة العروسين هنا: couple.jpg -->
+        <img src="couple.jpg" alt="حسام وندى"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="ph" style="display:none">
+          <div class="ph-mono">ح<span class="hw">♥</span>ن</div>
+          <div class="ph-note">الصورة قريب هتنوّر هنا ✨</div>
+        </div>
+      </div>
+    </div>
+    <p class="caption">وسط كل النجوم دي…<br>في نجمين <span class="g">الليلة كلها ليهم</span> 🤍</p>
+  </div>
+</section>
+
+<!-- ═══════ ٦ — بطاقة الليلة ═══════ -->
 <section id="night-card">
   <div class="reveal" style="width:100%;display:flex;flex-direction:column;align-items:center">
     <div class="eyebrow">The night</div>
@@ -462,9 +549,11 @@
       </div>
       <div class="row">
         <div class="lab">VENUE</div>
-        <!-- ✏️ عدّل اسم القاعة والعنوان هنا -->
-        <div class="val-ar">قاعة الاحتفالات الكبرى</div>
-        <div class="sub">العنوان والتفاصيل في رسالة الدعوة</div>
+        <div class="val-ar">قاعة وادي العمار</div>
+        <div class="sub">صفط تراب — المحلة الكبرى</div>
+        <a class="map-btn" href="https://maps.google.com?q=Wady%20Elamar,%20Saft%20Torab,%20El%20Mahalla%20El%20Kubra&ftid=0x14f7ba239a32d8f7:0x1dbfcc6831d017ab&entry=gps&shh=CAE&lucs=,94297699,94231188,94280568,47071704,94218641,94282134,100813464,94286869,100804976&g_st=ic" target="_blank" rel="noopener">
+          <span class="pin">✦</span> افتح اللوكيشن على الخريطة
+        </a>
       </div>
     </div>
   </div>
